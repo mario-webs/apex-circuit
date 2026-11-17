@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apex Racing</title>
-<meta name="apex-build" content="c760f62c96">
-<meta name="description" content="Apex Racing: juegos de carreras en el navegador. Fórmula 1, rally y drift.">
+<meta name="apex-build" content="7bc5e72bb1">
+<meta name="description" content="Apex Racing: juegos de carreras en el navegador. Fórmula 1, rally, drift y rallycross.">
 <script>
 // Si hay una versión publicada más nueva que la guardada en caché, recarga sola.
 (function () {
   if (!/^https?:$/.test(location.protocol) || !window.fetch) return;
-  var cur = 'c760f62c96';
+  var cur = '7bc5e72bb1';
   fetch('version.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (v) {
     if (!v || !v.build || v.build === cur) return;
     var key = 'apex-reload-' + v.build;
@@ -36,7 +36,7 @@ header { padding: 34px 48px 0; display: flex; align-items: baseline; gap: 16px; 
 .logo { font-family: var(--fh); font-weight: 800; font-style: italic; font-size: 34px; letter-spacing: 0.02em; }
 .logo b { color: #fff; } .logo span { color: transparent; -webkit-text-stroke: 1.5px #fff; margin-left: 8px; }
 header small { font-size: 12px; letter-spacing: 0.3em; color: var(--mute); text-transform: uppercase; }
-main { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; padding: 30px 48px 40px; }
+main { flex: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 22px; padding: 30px 48px 40px; }
 .game { position: relative; overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: flex-end; min-height: 520px; padding: 34px; border: 1px solid var(--line); isolation: isolate; transition: transform 0.25s, border-color 0.25s; }
 .game:hover, .game:focus-visible { transform: translateY(-4px); border-color: var(--accent); outline: none; }
 .game .art { position: absolute; inset: 0; z-index: -1; }
@@ -52,6 +52,7 @@ main { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
 .f1 { --accent: #e10600; --on: #fff; }
 .rally { --accent: #ffb000; --on: #111; }
 .drift { --accent: #2fd4ff; --on: #05141a; }
+.rx { --accent: #8ee03a; --on: #0d1a05; }
 footer { padding: 0 48px 28px; font-size: 12px; color: var(--mute); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 @media (max-width: 860px) { main { grid-template-columns: 1fr; padding: 20px 16px 30px; } header, footer { padding-left: 16px; padding-right: 16px; } .game { min-height: 420px; padding: 24px; } }
 </style>
@@ -73,7 +74,7 @@ footer { padding: 0 48px 28px; font-size: 12px; color: var(--mute); display: fle
     </svg></div>
     <div class="kick">MONOPLAZAS · CIRCUITOS</div>
     <div class="title">Apex <i>Circuit GP</i></div>
-    <p class="desc">Fórmula 1 en seis circuitos a escala real: neumáticos, ERS y DRS, boxes con entrada propia, guía de conducción, editor de circuitos y duelo a pantalla partida.</p>
+    <p class="desc">Fórmula 1 en los 24 circuitos reales del calendario 2026, con su trazado, desnivel y peraltes: neumáticos, ERS y DRS, boxes con entrada propia, guía de conducción, editor de circuitos y duelo a pantalla partida.</p>
     <div class="tags"><span>Gran Premio</span><span>Boxes</span><span>Editor</span><span>2 jugadores</span></div>
     <span class="play">Jugar F1</span>
   </a>
@@ -113,6 +114,25 @@ footer { padding: 0 48px 28px; font-size: 12px; color: var(--mute); display: fle
     <p class="desc">Derrapes con física de simulación, humo iluminado y marcas que se quedan en el asfalto. Jueces de línea, ángulo y estilo, tándem tras un líder, garaje con reglajes y duelo a pantalla partida.</p>
     <div class="tags"><span>Competición</span><span>Tándem</span><span>Garaje</span><span>2 jugadores</span></div>
     <span class="play">Jugar Drift</span>
+  </a>
+  <a class="game rx" href="rallycross/">
+    <div class="art"><svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+      <defs><linearGradient id="s4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5f7f9e"/><stop offset="0.6" stop-color="#c9c2a8"/><stop offset="1" stop-color="#8a7a5c"/></linearGradient>
+      <radialGradient id="d4" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#c8ab84" stop-opacity="0.85"/><stop offset="1" stop-color="#c8ab84" stop-opacity="0"/></radialGradient></defs>
+      <rect width="800" height="600" fill="url(#s4)"/>
+      <path d="M0 330 L70 270 L110 320 L160 250 L210 320 L800 320 L800 600 L0 600Z" fill="#2f4426"/>
+      <path d="M0 600 L280 380 L520 380 L800 600Z" fill="#3b3d42"/>
+      <path d="M300 600 C 380 470, 520 420, 800 400 L800 600Z" fill="#a5865e"/>
+      <path d="M0 395 L800 365 L800 372 L0 403Z" fill="#d8d8d8"/>
+      <ellipse cx="470" cy="470" rx="260" ry="90" fill="url(#d4)"/>
+      <g transform="translate(430 400) rotate(-10)"><path d="M-118 30 L-112 -8 L-64 -16 L-30 -52 L52 -54 L88 -16 L118 -6 L122 30Z" fill="#8ee03a"/><path d="M-112 2 L120 8 L120 20 L-116 16Z" fill="#111"/><path d="M-26 -48 L48 -50 L72 -18 L-52 -16Z" fill="#1b2430"/><rect x="72" y="-74" width="74" height="10" fill="#111"/><rect x="96" y="-66" width="6" height="30" fill="#111"/><circle cx="-74" cy="34" r="26" fill="#111"/><circle cx="80" cy="34" r="26" fill="#111"/><circle cx="-74" cy="34" r="11" fill="#e8e8e8"/><circle cx="80" cy="34" r="11" fill="#e8e8e8"/></g>
+      <path d="M300 470 L240 520 M330 480 L280 545" stroke="#6b5a42" stroke-width="10" opacity="0.6"/>
+    </svg></div>
+    <div class="kick">RALLYCROSS · RUEDA A RUEDA</div>
+    <div class="title">Apex <i>Rallycross</i></div>
+    <p class="desc">Supercoches de 600 CV en circuitos de asfalto y tierra con saltos y vuelta joker obligatoria. Salida parada, contacto con la IA y eventos con mangas, semifinal y final.</p>
+    <div class="tags"><span>Evento RX</span><span>Joker</span><span>Contrarreloj</span><span>2 jugadores</span></div>
+    <span class="play">Jugar Rallycross</span>
   </a>
 </main>
 <footer><span>Funciona en Chrome, Edge y Firefox con teclado o mando. Cada juego guarda su progreso por separado.</span><span>Apex Racing</span></footer>
