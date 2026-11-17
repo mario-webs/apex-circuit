@@ -1,6 +1,6 @@
 # Apex Racing · versión web
 
-Juegos de carreras en 3D que se juegan en el navegador, con teclado o mando.
+Juegos de carreras en 3D que se juegan en el navegador, con teclado o mando: Fórmula 1, rally y drift.
 
 **Jugar:** https://mario-webs.github.io/apex-circuit/
 
@@ -8,3 +8,5 @@ Juegos de carreras en 3D que se juegan en el navegador, con teclado o mando.
 - **Apex Rally** (`/rally/`): cinco rallies de tierra, asfalto, nieve y barro con física de rally real, copiloto en castellano, parque de asistencia, campeonato y superespecial a pantalla partida.
 
 Funciona en Chrome, Edge y Firefox de escritorio.
+
+- **Apex Drift** (`/drift/`): derrapes con física de simulación, jueces de línea, ángulo y estilo, tándem, garaje de reglajes y duelo a pantalla partida.
