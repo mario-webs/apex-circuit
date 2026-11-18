@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apex Racing</title>
-<meta name="apex-build" content="7bc5e72bb1">
+<meta name="apex-build" content="7bf40825b6">
 <meta name="description" content="Apex Racing: juegos de carreras en el navegador. Fórmula 1, rally, drift y rallycross.">
 <script>
 // Si hay una versión publicada más nueva que la guardada en caché, recarga sola.
 (function () {
   if (!/^https?:$/.test(location.protocol) || !window.fetch) return;
-  var cur = '7bc5e72bb1';
+  var cur = '7bf40825b6';
   fetch('version.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (v) {
     if (!v || !v.build || v.build === cur) return;
     var key = 'apex-reload-' + v.build;
